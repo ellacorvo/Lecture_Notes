@@ -159,7 +159,25 @@
 // evilGeorge.fly();
 // evilGeorge.climb('pine');
 
-//............bootstrap..........//
+//............node..........//
+
+// console.log(process.argv)
+// var string = process.argv[2];//arguments [0] is node, [1] is your .js file, and arguments [2] on are the arguments you want to call/pass into functions
+
+// var reverse = function(string) {
+// 	return string.split('').reverse().join('');
+// }
+
+// console.log(reverse(string));
+
+var fs = require('fs') //requires the filesystem module
+
+var notes = fs.readFileSync('./notes.txt', 'utf-8');//'reads' the file and translates it into text
+
+fs.writeFileSync('output.txt', notes);//create new file and writes the content from the variable that points to the copied text
+
+
+
 
 
 
