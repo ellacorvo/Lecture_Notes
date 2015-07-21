@@ -2,8 +2,29 @@ extends layout
 
 block content
 	h1 Hello Boulder!
+	h3 visitor count : #{counter}			   
 
-	form(method="POST" action="/contact")
-		input(name="name")
-		input(name="complaint")
-		input(type="submit")
+block otherContent
+		h2 best foods ever!
+		ul 
+			for foodItem in foods
+				li=foodItem.name
+
+		form(action="/submit", method="POST")
+			input(name="food")
+			input(type="submit")
+
+		mixin foodlist(food)
+			li #{food.name}
+			if block
+				block
+
+		h1 even better foods : 
+		ul 
+			for foodItem in foods
+				if foodItem === 'pineapple'
+					+foodlist(foodItem)
+				else
+					+foodlist(foodItem)
+						p this is the best
+

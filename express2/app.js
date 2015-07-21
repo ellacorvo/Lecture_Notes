@@ -15,12 +15,30 @@ app.use(express.static(__dirname + '/public'));//declaring that we save our stat
 //where you store client side/jquery type files, CSS and images.
 app.use(bodyParser.urlencoded({extended: false}));//this needs to happen before we do anything with our requests.
 
-app.get('/', indexController.index);
+// app.get('/', indexController.index);
 
-app.post('/contact', function(req,res){
+var foods = [
+	{name : 'pineapple'},
+	{name : 'haggis'},
+	{name : 'saag'}
+]
+
+var siteCounter = 1
+
+app.get('/', function(req,res){
+	res.render('index', {
+		counter : siteCounter,
+		foods : foods
+	});
+
+	siteCounter++
+})
+
+app.post('/submit', function(req,res){
 	//the name attr becomes the key in req.body. without a name attribute, it will not be sent
-	console.log(req.body)
-	res.send('roger that')//a request always expects a response, you should send something of the website hangs.
+	foods.push({ name : req.body.food })
+	//a request always expects a response, you should send something of the website hangs.
+	res.redirect('/')//this just rediects back to the homepage
 })
 
 var server = app.listen(4072, function() {
