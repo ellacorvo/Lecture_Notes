@@ -178,16 +178,16 @@
 
 //........node.js webserver........//
 
-var http = require('http')//http is a module
+// var http = require('http')//http is a module
 
-var server = http.createServer(function(request, response) {//the http module has a method called createServer
-	response.writeHead(200, {'Content-Type': 'text/plain'})//sets status code (200 = ok), and some headers
-	response.end("Hello World")//like 'return' in a function. ends function and sends a response. 
-})
+// var server = http.createServer(function(request, response) {//the http module has a method called createServer
+// 	response.writeHead(200, {'Content-Type': 'text/plain'})//sets status code (200 = ok), and some headers
+// 	response.end("Hello World")//like 'return' in a function. ends function and sends a response. 
+// })
 
-server.listen(9001)//port number. ip address is like a dock, and once you reach a dock you have to specify port number (usually the default is 80, that doesnt need to be specified)
-					//when making pages to serve on local maching, use high numbers like 9001 because the lower ones are reserved for preset things. listen will
-					//usually be the last thing you run after creating the server, and all your code will go above.
+// server.listen(9001)//port number. ip address is like a dock, and once you reach a dock you have to specify port number (usually the default is 80, that doesnt need to be specified)
+// 					//when making pages to serve on local maching, use high numbers like 9001 because the lower ones are reserved for preset things. listen will
+// 					//usually be the last thing you run after creating the server, and all your code will go above.
 
 
 
