@@ -2,29 +2,36 @@ extends layout
 
 block content
 	h1 Hello Boulder!
-	h3 visitor count : #{counter}			   
 
-block otherContent
-		h2 best foods ever!
-		ul 
-			for foodItem in foods
-				li=foodItem.name
+	for foodItem in foodieFoods
+		.food-item
+			a(href="/foods/#{foodItem.slug}") 
+				h2 #{foodItem.name}
+			p this food is #{foodItem.flavor}
+			a(href="/foods/#{foodItem.slug}/delete") Delete #{foodItem.name}
 
-		form(action="/submit", method="POST")
-			input(name="food")
-			input(type="submit")
 
-		mixin foodlist(food)
-			li #{food.name}
-			if block
-				block
+	//- h3 visitor count : #{counter}			   
 
-		h1 even better foods : 
-		ul 
-			for foodItem in foods
-				if foodItem === 'pineapple'
-					+foodlist(foodItem)
-				else
-					+foodlist(foodItem)
-						p this is the best
+//- block otherContent
+//- 		h2 best foods ever!
+//- 		ul 
+//- 			for foodItem in foods
+//- 				li=foodItem.name
 
+//- 		form(action="/submit", method="POST")
+//- 			input(name="food")
+//- 			input(type="submit")
+
+//- 		mixin foodlist(food)
+//- 			li #{food.name}
+//- 			if block
+//- 				block
+
+//- 		h1 even better foods : 
+//- 		ul 
+//- 			for foodItem in foods
+//- 				if foodItem === 'pineapple'
+//- 					+foodlist(foodItem)
+//- 				else
+//- 					+foodlist(foodItem)
